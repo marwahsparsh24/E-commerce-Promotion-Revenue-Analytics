@@ -1,4 +1,4 @@
-# E-commerce-Promotion-Revenue-Analytics
+# E-commerce Promotion Revenue Analytics
 
 A production-style data pipeline that transforms TPCH-like raw data into analytics-ready **facts & dimensions** on **Snowflake**, orchestrated by **Apache Airflow** via **Astronomer Cosmos**.
 
