@@ -81,7 +81,7 @@ create role dbt_role;
 show grants on warehouse dbt_wh;
 
 grant usage on warehouse dbt_wh to role dbt_role;
-grant role dbt_role to user marwahsp24;
+grant role dbt_role to user <USERNAME>;
 grant all on database dbt_db to role dbt_role;
 
 use role dbt_role;
@@ -136,11 +136,11 @@ Outputs: `dim_*` and `fct_*` relations in `DBT_DB.DBT_SCHEMA`.
    pip install "apache-airflow-providers-snowflake" "astronomer-cosmos>=1.9,<2" "dbt-snowflake==1.10.0"
    ```
 2. In Airflow **Admin → Connections**, create **`Snowflake_conn`**  
-   - Host: `fbc00712.us-east-1`  
+   - Host: `<ACC_NAME>`  
    - Extra JSON:
      ```json
      {
-       "account": "fbc00712.us-east-1",
+       "account": "<ACC_NAME>",
        "warehouse": "DBT_WH",
        "database": "DBT_DB",
        "role": "DBT_ROLE",
@@ -163,7 +163,7 @@ Outputs: `dim_*` and `fct_*` relations in `DBT_DB.DBT_SCHEMA`.
 
 ## Troubleshooting
 
-- **Account format:** `fbc00712.us-east-1` (no protocol/domain)  
+- **Account format:** `<ACC_NAME>` (no protocol/domain)  
 - **Auth:** use `authenticator: snowflake` for user/password; `externalbrowser` for SSO  
 - **Permissions:** ensure role grants on warehouse/database/schema (see bootstrap SQL)  
 - **Cosmos path:** point to the **folder** (not the file) that has `dbt_project.yml`  
@@ -194,7 +194,3 @@ dbt-dag/dags/**/dbt_packages/
 ```
 
 ---
-
-## License
-
-MIT (or your choice).
