@@ -1,8 +1,6 @@
 # E-commerce Promotion Revenue Analytics
 
-A production-style data pipeline that transforms TPCH-like raw data into analytics-ready **facts & dimensions** on **Snowflake**, orchestrated by **Apache Airflow** via **Astronomer Cosmos**.
-
-**Use case:** E‑commerce promotion & revenue analytics — daily net revenue, discount leakage, and customer/product insights from raw orders & line items.
+A production-style data pipeline that transforms ecommerce promotion & revenue raw data into analytics-ready **facts & dimensions** on **Snowflake**, orchestrated by **Apache Airflow** via **Astronomer Cosmos**.
 
 ---
 
