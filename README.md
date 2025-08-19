@@ -1,4 +1,4 @@
-# dbt + Airflow (Cosmos) + Snowflake — Analytics Pipeline
+# E-commerce-Promotion-Revenue-Analytics
 
 A production-style data pipeline that transforms TPCH-like raw data into analytics-ready **facts & dimensions** on **Snowflake**, orchestrated by **Apache Airflow** via **Astronomer Cosmos**.
 
