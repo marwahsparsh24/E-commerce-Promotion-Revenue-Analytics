@@ -72,16 +72,21 @@ dbt debug
 Run once as an admin (e.g., `SYSADMIN`):
 
 ```sql
-CREATE WAREHOUSE IF NOT EXISTS DBT_WH  WITH WAREHOUSE_SIZE='XSMALL' AUTO_SUSPEND=60 AUTO_RESUME=TRUE;
-CREATE DATABASE  IF NOT EXISTS DBT_DB;
-CREATE SCHEMA    IF NOT EXISTS DBT_DB.DBT_SCHEMA;
+use role accountadmin;
 
-CREATE ROLE IF NOT EXISTS DBT_ROLE;
-GRANT ROLE DBT_ROLE TO USER <YOUR_USER>;
+create warehouse dbt_wh with warehouse_size = 'x-small';
+create database dbt_db;
+create role dbt_role;
 
-GRANT USAGE ON WAREHOUSE DBT_WH TO ROLE DBT_ROLE;
-GRANT USAGE, CREATE SCHEMA ON DATABASE DBT_DB TO ROLE DBT_ROLE;
-GRANT OWNERSHIP ON SCHEMA DBT_DB.DBT_SCHEMA TO ROLE DBT_ROLE REVOKE CURRENT GRANTS;
+show grants on warehouse dbt_wh;
+
+grant usage on warehouse dbt_wh to role dbt_role;
+grant role dbt_role to user marwahsp24;
+grant all on database dbt_db to role dbt_role;
+
+use role dbt_role;
+
+create schema dbt_db.dbt_schema;
 ```
 
 ---
