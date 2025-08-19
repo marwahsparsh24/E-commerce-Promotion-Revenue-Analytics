@@ -1,0 +1,22 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Airflow / Astronomer
+logs/
+.astro/
+.env
+*.log
+
+# dbt build artifacts (both locations)
+data_pipeline/target/
+data_pipeline/logs/
+data_pipeline/dbt_packages/
+dbt-dag/dags/**/target/
+dbt-dag/dags/**/logs/
+dbt-dag/dags/**/dbt_packages/
+
+.vscode/
+.idea/
